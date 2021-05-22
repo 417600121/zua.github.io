@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZUA监考系统</title>
+    <style>
+        body{
+            /* background-color:dodgerblue; */
+            display: flex;
+            background-image: url("https://s1.imagehub.cc/images/2021/05/21/bk.jpg");
+        }
+        div.info{
+            width: 850px;
+            height: 580px;
+            background-color: rgba(255,255,255,1);
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 0px 30px 15px rgba(0,0,0,0.6);
+            
+            overflow: auto;
+            margin: auto;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            z-index: 999;
+        }
+        div.title{
+            font-weight: bold;
+            font-size: 25px;
+            color: rgb(21, 156, 201);
+            
+            
+        }
+        .stitle{
+            margin-top: 2px;
+            margin-bottom: 8px;
+            display:block;
+            font-size: 14px;
+        }
+        #id{
+            transition: 1s all ease;/*动画*/
+            border: solid 1px;
+            border-radius: 14px;
+            height: 28px;
+            outline:none;
+            padding-left: 10px;
+            font-size: 20px;
+        }
+        #id:hover,
+        #id:focus{
+            border-color: rgb(21, 156, 201);
+        }
+        .zysx,
+        .time{
+            color: red;
+        }
+        .time{
+            display: inline;
+        }
+        .warning{
+            font-size: 13px;
+        }
+        .zysx{
+            margin-top: 14px;
+            margin-bottom: 10px;
+        }
+        .rhsk{
+            margin-bottom: auto;
+        }
+        .k{
+            color: red;
+        }
+		.special{
+			font-size: 18px;
+		}
+        .pta{
+            background-color:dodgerblue;
+            transition: 1s all ease;/*动画*/
+            text-decoration: none;
+            border: 1px solid dodgerblue;
+            color: white;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 14px;
+            
+        }
+        .pta:hover{
+            background-color:rgb(97, 176, 255);
+        }
+        .pta div{
+            display: inline;
+        }
+        .line{
+            
+            height: 1px;
+            background-color: black;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <div class="h">
+            <div class="title">ZUA网页监考系统</div>
+            <div id="ip"></div>
+            <div class="line"></div>
+        </div>
+        
+        <div class="b">
+            <div class="zysx">注意事项：</div>
+            <div class="warning">
+                
+                <span>0.考试时间为：</span>
+                <span class="time">5.22 18:30-21:30 3小时</span>
+                <p>1.你需要在3小时内完成13道题，题目分值覆盖5,10,20,25,30，共计225分，每道题目都有若干测试点(大家不可见)，提交代码后会根据通过的测试点获得相应分数，通过所有测试点，该题即满分。</p>
+                <p>2.未经监考允许不得关闭本监考网页， 更不得以任何方式登出。违者可被认定为作弊。 即使提前退出考试，也不可以自己关闭监考网页，必须等监考来处理。</p>
+                <p class="rhsk">
+                    3.任何时刻都
+                    <div class="k">严禁启动除运行该网页以外的任何浏览器；</div>
+                    <div class="k">严禁启动任何即时通信软件；</div>
+                    <div class="k">严禁打开任何异常程序；</div>
+                    <div class="k">严禁提前或中途打开考试开始之前已存在的电脑文件；</div>
+                    违者若与作弊有关，被即刻请出考场。
+                </p>
+                <p>注意：当监考网页系统检测到异常违规情况时，并不会通知你，也不会有任何弹窗，但此时你的违规操作系统会自动截图保存并发送至监考</p>
+                <p>4.一旦考试开始，则PTA倒计时开启，并且不会因为浏览器关闭或重启机器而停止。当时间到达21:30时，该考生的考试结束。</p>
+                <p>5.注意如考生以C++编译器提交代码则无法使用gets()函数。</p>
+                <p>6.有任何异常情况请及时向监考汇报。</p>
+                <p class="special">来吧，编程队你的位置我们已经留好了，期待看到你。（^_^）</p>
+            </div>
+            <div class="line"></div>
+        </div>
+        <div class="f">
+            <div class="stitle">如果你已经清楚阅读以上注意事项，那么请在下方输入学号并点击开始按钮</div>
+            <input type="text" name="" id="id">
+            <a href="https://pintia.cn/auth/login" class="pta" target="_blank"><div>开始</div></a>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script>
+    // 公网ip地址returnCitySN["cip"]
+    var element=document.getElementById("ip");
+    element.innerHTML='你的IP为：'+returnCitySN["cip"]+'       监考系统正在运行...';
+</script>
+</html>
